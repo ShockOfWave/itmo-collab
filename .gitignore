@@ -1,0 +1,5 @@
+.idea/
+__pycache__/
+data/
+src/__pycache__/
+src/cv/__pycache__/
