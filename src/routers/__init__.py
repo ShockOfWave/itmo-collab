@@ -1,12 +1,13 @@
 from fastapi import APIRouter
 
-from . import media
+from . import video, rtc
 
 
 def init(app):
     router = APIRouter()
     modules = [
-        media
+        video,
+        rtc
     ]
     for modul in modules:
         router.include_router(modul.router)

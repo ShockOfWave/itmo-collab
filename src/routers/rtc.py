@@ -4,7 +4,7 @@ from fastapi import APIRouter
 from ..rtc import VideoStream, relay, recorder, pcs
 from ..schemas import Offer, RTCOffer
 
-router = APIRouter(prefix='/media')
+router = APIRouter(prefix='/rtc')
 
 @router.post('/offer')
 async def offer(offer: Offer):
