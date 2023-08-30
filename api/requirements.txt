@@ -24,6 +24,7 @@ pyee==9.0.4
 pylibsrtp==0.8.0
 pyOpenSSL==23.1.1
 python-dateutil==2.8.2
+python-dotenv==1.0.0
 python-ffmpeg-video-streaming==0.1.15
 python-multipart==0.0.6
 s3transfer==0.6.2

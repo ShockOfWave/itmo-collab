@@ -1,4 +1,5 @@
 import uvicorn as uvicorn
+from dotenv import load_dotenv
 from fastapi import FastAPI
 
 from api.src import init_app
@@ -10,6 +11,7 @@ app = FastAPI(
     description = 'API',
     docs_url = '/docs',
 )
+load_dotenv()
 
 init_app(app)
 

@@ -1,5 +1,6 @@
 .idea/
 __pycache__/
 data/
-src/__pycache__/
-src/cv/__pycache__/
+api/src/__pycache__/
+api/src/cv/__pycache__/
+frontend/node_modules
