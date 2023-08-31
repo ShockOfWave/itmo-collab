@@ -2,6 +2,9 @@ import boto3
 from botocore.config import Config
 from fastapi import Depends
 
+import os
+from api.src.utils.paths import get_project_path
+
 from api.src.config import settings
 
 
@@ -30,3 +33,16 @@ def upload_file_to_s3(path, s3_uri, s3=create_s3_session()):
     s3.upload_file(path,
                    settings.S3_BUCKET,
                    s3_uri)
+    
+def download_file_from_s3(s3_uri, s3=create_s3_session(),
+                          path_to_local_storage: str = os.path.join(get_project_path(), 'api', 'weight')):
+    """Download file from s3 bucket
+
+    Args:
+        s3_uri (_type_): Path to file in s3 bucket
+        s3 (_type_, optional): Init s3 session. Defaults to create_s3_session().
+        path_to_local_storage (str, optional): Path to file in local storate. Defaults to os.path.join(get_project_path(), 'api', 'weight').
+    """
+    s3.download_file(settings.S3_BUCKET,
+                     s3_uri,
+                     path_to_local_storage)

@@ -1,7 +1,6 @@
 import cv2
 import numpy as np
 
-
 def get_area(cnt):
     area = cv2.contourArea(cnt)
     return area

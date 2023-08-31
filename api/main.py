@@ -8,6 +8,10 @@ from fastapi import FastAPI
 from api.src import init_app
 from fastapi.templating import Jinja2Templates
 
+from api.src.models import check_models, init_models
+
+check_models()
+segmentation_model, classification_model = init_models()
 
 app = FastAPI(
     title='ITMO Collab',
