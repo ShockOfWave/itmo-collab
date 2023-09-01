@@ -13,6 +13,7 @@ def _highlight_contours(img, contours):
 
 def find_molecules(img):
     contours = model.predict(img)
+    print(contours)
     if len(contours[0][0]) is not None:
         for contour, area in contours:
             cx, cy = get_center(contour)
