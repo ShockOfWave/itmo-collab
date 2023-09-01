@@ -6,8 +6,7 @@ from api.src.models.segmentation_model import SegmentationModel
 model = SegmentationModel(model_path='api/weights/segmentation_model.pt')
 
 
-def _highlight_contours(img, contours):
-    for contour in contours:
+def _highlight_contours(img, contour):
         cv2.drawContours(img, contour, -1, (0, 255, 0), 2)
 
 
@@ -15,7 +14,6 @@ def find_molecules(img):
     contours = model.predict(img)
     if contours is not None:
         for contour in contours:
-            print(len(contour))
             cx, cy = get_center(contour)
             if cx is not None and cy is not None:
                 cv2.circle(img, (cx, cy), 4, (0, 255, 255), -1)
@@ -29,7 +27,7 @@ def find_molecules(img):
                 cv2.putText(img, txt, (int(cx-rad), int(cy-diam+dy)), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,255), 2)
             cv2.rectangle(img, (cx-int(rad)-5, cy-int(diam)-15), (cx-int(rad)-5+150, cy-int(diam)-15+65), (0, 255, 255), 1)
             cv2.line(img, (cx, cy), (cx-int(rad)-5+150, cy-int(diam)-15+65), (0,255,255), 1)
-        _highlight_contours(img, contours)
+            _highlight_contours(img, contours)
 
 
 
