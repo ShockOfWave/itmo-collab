@@ -10,9 +10,9 @@ class SegmentationModel:
             ) -> None:
         
         '''
-        Аргументы:
-        model_path - путь к yolo модели для сегментации
-        conf - порог уверенности модели (желательно 0.3)
+        Args:
+        model_path - path to segmentation yolo model
+        conf - model coinfidence (recommended 0.3)
         '''
 
         self._model = YOLO(model_path)
@@ -24,12 +24,12 @@ class SegmentationModel:
             ) -> List:
         
         '''
-        Основная функция для предсказания
+        Main function for prediction
 
-        Аргументы:
-        image - изображение в виде numpy array
+        Args:
+        image - image as numpy array
 
-        Возвращает список типа [(poly1, area1), (poly2, area2), ...]
+        Returns list like [(poly1, area1), (poly2, area2), ...]
         '''
 
         result = self._model.predict(
