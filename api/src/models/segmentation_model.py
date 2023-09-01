@@ -40,7 +40,7 @@ class SegmentationModel:
         
         if len(result[0]):
             polygons = [np.array(poly, np.int32) for poly in result[0].masks.xy]
-
+            
             return polygons
         else:
             return None
