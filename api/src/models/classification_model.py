@@ -9,7 +9,8 @@ import lightning as pl
 import torchmetrics
 
 class OctaneClassifier(pl.LightningModule):
-    """Classification model based on ResNet50 weights, trained with transfer learning method
+    """
+    Classification model based on ResNet50 weights, trained with transfer learning method
     """
     def __init__(self):
         super().__init__()
