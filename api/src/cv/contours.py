@@ -1,6 +1,6 @@
 import cv2
 
-from api.src.cv.params import get_center, get_arc_lenght, eq_dia, get_radius
+from api.src.cv.params import get_center, get_arc_lenght, eq_dia, get_radius, get_area
 from api.src.models.segmentation_model import SegmentationModel
 
 model = SegmentationModel(model_path='api/weights/segmentation_model.pt')
@@ -13,15 +13,16 @@ def _highlight_contours(img, contours):
 
 def find_molecules(img):
     contours = model.predict(img)
-    print(contours)
-    if len(contours[0][0]) is not None:
-        for contour, area in contours:
+    if contours is not None:
+        for contour in contours:
+            print(len(contour))
             cx, cy = get_center(contour)
             if cx is not None and cy is not None:
                 cv2.circle(img, (cx, cy), 4, (0, 255, 255), -1)
             arc_lenght = get_arc_lenght(contour)
             diam = eq_dia(contour)
             rad = get_radius(contour)
+            area = get_area(contour)
             text =  f"Area: {int(area)}\nArc lenght: {int(arc_lenght)}\nDiameter: {int(diam)}\nRadius: {int(rad)}"
             for i, txt in enumerate(text.split('\n')):
                 dy = 15*i
