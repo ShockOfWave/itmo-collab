@@ -1,39 +1,72 @@
-# API
+# Octane number analysis with cavitation bubbles and neural networks
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/pragyy/datascience-readme-template?include_prereleases)
+![GitHub last commit](https://img.shields.io/github/last-commit/pragyy/datascience-readme-template)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/pragyy/datascience-readme-template)
+![GitHub](https://img.shields.io/github/license/pragyy/datascience-readme-template)
+![contributors](https://img.shields.io/github/contributors/pragyy/datascience-readme-template) 
+![codesize](https://img.shields.io/github/languages/code-size/pragyy/datascience-readme-template)
 
-Серверная часть.
+# Introduction
 
-## Переменные окружения
+This project uses machine learning techniques and the nature of cavitation bubbles to predict the octane number of gasoline.
+Cavitation bubbles are formed under the influence of ultrasound, filmed on a high-speed camera. The resulting videos are storyboarded and segmented using a model based on YOLOv8 weights. The area, radius, etc. of each cavitation bubble in the image are obtained from the contours.
+Also, a model based on ResNet50 scales is used to classify the octane number in gasoline.
 
-Для переопределения переменных окружения используется файл `api.env`. Ниже приведён список переменных окружения, которые можно переопределить:
+# Data
 
-- `S3_URL` - необязательно (yandex storage по умолчанию); URL S3
-- `S3_BUCKET` - необязательно (`itmo-collab-petrol' по умолчанию); наименование бакета S3
-- `S3_ACCESS_KEY` - **обязательно**; логин для авторизации в S3
-- `S3_SECRET_KEY` - **обязательно**; пароль для авторизации в S3
-- `PROJECT_DIR_PATH` - **обязательно**; путь до проекта
+Data on [raw videos](https://storage.yandexcloud.net/cavitation-bubbles-data/videos.7z), 
+individual [frames](), 
+[marked-up frames](https://storage.yandexcloud.net/cavitation-bubbles-data/marked_frames.7z) for segmentation, 
+weights of [segmentation](https://storage.yandexcloud.net/itmo-collab-app/weights/segmentation_model.pt) and [classification](https://storage.yandexcloud.net/itmo-collab-app/weights/classification_model.ckpt) models are presented.
 
-## Локальный запуск
+# Usage
 
+## API
 
-Для запуска приложения необходимо иметь установленную версию языка Python ^3.10.8.
+The server part contains the main computing operations. In particular, neural network models for segmentation and classification are presented here.
 
-Перед запуском сервера необходимо настроить все пакеты для работы сервера. Можно использовать следующую команду в папке api:
+### Environment variables
+
+The `api/.env` file is used to override environment variables. Below is a list of environment variables that can be overridden:
+
+- `S3_URL` - optional (yandex cloud by default); S3 URL
+- `S3_BUCKET` - optional (`itmo-collab-app` by default); S3 bucket name
+- `S3_ACCESS_KEY` - **require**; S3 identification key
+- `S3_SECRET_KEY` - **require**; S3 secret key
+- `PROJECT_DIR_PATH` - **require**; Path to project in local file system
+
+### Requirements
+
+You can use the pip package manager to install dependencies:
 ```bash
-pip install -r api_requirements.txt
+pip install -r api/requirements.txt
 ```
-Также необходимо установить FFmpeg для обработки изображений командой в командной строке:
+
+You also need to install ffmpeg:
 
 ```bash
 sudo apt install ffmpeg
 ```
 И можно запустить main. Надо еще в конфиг добавить port, host. Пока еще не успел сделать конфиг на фронте, поэтому пока так.
 
-# Frontend
-Насчет версий не уверен, возможно с более новыми не пойдет, но у меня и не так много чего добавлено. У меня был установлен node v10.14.0 и npm v6.4.1.
+### Run
 
-Зайти в папку frontend. 
+To run API use:
+```bash
+python -m uvicorn api/main:app --host=0.0.0.0 --port=5556
+```
+
+## Frontend
+
+To install dependencies for the frontend part, use:
+
 ```bash
 npm ci
 npm run start
 ```
-todo config
+
+# Acknowledgment
+This project was carried out with the support of the ITMO.Collab grant 622284 as part of the implementation of the 2030 project.
+
+# License
+The code is distributed under the [MIT license](https://opensource.org/license/mit/).
