@@ -1,11 +1,4 @@
 # Octane number analysis with cavitation bubbles and neural networks
-![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/pragyy/datascience-readme-template?include_prereleases)
-![GitHub last commit](https://img.shields.io/github/last-commit/pragyy/datascience-readme-template)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/pragyy/datascience-readme-template)
-![GitHub](https://img.shields.io/github/license/pragyy/datascience-readme-template)
-![contributors](https://img.shields.io/github/contributors/pragyy/datascience-readme-template) 
-![codesize](https://img.shields.io/github/languages/code-size/pragyy/datascience-readme-template)
-
 # Introduction
 
 This project uses machine learning techniques and the nature of cavitation bubbles to predict the octane number of gasoline.
