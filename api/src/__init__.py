@@ -3,8 +3,6 @@ import asyncio
 from starlette.middleware.cors import CORSMiddleware
 from starlette.staticfiles import StaticFiles
 
-
-
 def init_app(app):
     from .routers import init as init_routers
 

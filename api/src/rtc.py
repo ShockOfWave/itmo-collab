@@ -2,7 +2,7 @@ from aiortc import MediaStreamTrack
 from aiortc.contrib.media import MediaRelay, MediaBlackhole
 from av import VideoFrame
 
-from .cv.contours import find_molecules
+from api.src.cv.contours import find_molecules
 
 class VideoStream(MediaStreamTrack):
     kind = 'video'

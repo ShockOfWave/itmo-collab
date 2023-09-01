@@ -1,8 +1,8 @@
 from aiortc import RTCPeerConnection, RTCSessionDescription
 from fastapi import APIRouter
 
-from ..rtc import VideoStream, relay, recorder, pcs
-from ..schemas import Offer, RTCOffer
+from api.src.rtc import VideoStream, relay, recorder, pcs
+from api.src.schemas import Offer, RTCOffer
 
 router = APIRouter(prefix='/rtc')
 

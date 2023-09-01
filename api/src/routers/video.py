@@ -3,7 +3,7 @@ from tempfile import NamedTemporaryFile
 
 from fastapi import APIRouter, UploadFile
 
-from ..cv import create_and_upload_handled_video
+from api.src.cv import create_and_upload_handled_video
 
 
 router = APIRouter(prefix='/video')

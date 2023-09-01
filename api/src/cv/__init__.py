@@ -4,10 +4,10 @@ import shutil
 
 import cv2
 
-from ..utils.converter import mp4_to_hls
-from .contours import find_molecules
-from ..config import settings
-from ..utils.s3 import create_s3_folder, upload_file_to_s3, create_presigned_s3_url
+from api.src.utils.converter import mp4_to_hls
+from api.src.cv.contours import find_molecules
+from api.src.config import settings
+from api.src.utils.s3 import create_s3_folder, upload_file_to_s3, create_presigned_s3_url
 
 def create_and_upload_handled_video(video_name):
     vcap = cv2.VideoCapture(video_name)
