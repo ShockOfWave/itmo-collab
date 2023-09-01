@@ -54,7 +54,7 @@ def init_models() -> [OctaneClassifier, SegmentationModel]:
         [OctaneClassifier, SegmentationModel]: Classification model and segmentation model
     """
     segmentation_model = SegmentationModel(model_path=PATH_TO_SEGMENTATION_MODEL)
-    classification_model = OctaneClassifier.load_from_checkpoint(checkpoint_path=PATH_TO_CLASSIFICATION_MODEL)
+    classification_model = OctaneClassifier.load_from_checkpoint(checkpoint_path=PATH_TO_CLASSIFICATION_MODEL, map_location='cuda:0')
     
     return segmentation_model, classification_model
 

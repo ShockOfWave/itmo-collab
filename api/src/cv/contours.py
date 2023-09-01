@@ -3,7 +3,7 @@ import cv2
 from api.src.cv.params import get_center, get_arc_lenght, eq_dia, get_radius
 from api.src.models.segmentation_model import SegmentationModel
 
-model = SegmentationModel(model_path='api/src/models/weigths')
+model = SegmentationModel(model_path='api/weights/segmentation_model.pt')
 
 
 def _highlight_contours(img, contours):
