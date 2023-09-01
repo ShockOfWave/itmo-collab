@@ -4,3 +4,6 @@ data/
 api/src/__pycache__/
 api/src/cv/__pycache__/
 frontend/node_modules
+
+# python venv
+**/venv/**
