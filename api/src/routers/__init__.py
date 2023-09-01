@@ -1,7 +1,6 @@
 from fastapi import APIRouter
 
-from . import video, rtc
-
+from api.src.routers import video, rtc
 
 def init(app):
     router = APIRouter()

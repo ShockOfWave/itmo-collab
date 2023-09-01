@@ -5,5 +5,14 @@ api/src/__pycache__/
 api/src/cv/__pycache__/
 frontend/node_modules
 
+# .env file
+**/.env
+
+# ML models weights
+**/weights/**
+
 # python venv
 **/venv/**
+
+# pycaches
+**/__pycache__/**
