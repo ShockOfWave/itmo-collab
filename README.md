@@ -15,7 +15,7 @@ Also, a model based on ResNet50 scales is used to classify the octane number in 
 # Data
 
 Data on [raw videos](https://storage.yandexcloud.net/cavitation-bubbles-data/videos.7z), 
-individual [frames](), 
+individual [frames](https://storage.yandexcloud.net/cavitation-bubbles-data/frames.7z), 
 [marked-up frames](https://storage.yandexcloud.net/cavitation-bubbles-data/marked_frames.7z) for segmentation, 
 weights of [segmentation](https://storage.yandexcloud.net/itmo-collab-app/weights/segmentation_model.pt) and [classification](https://storage.yandexcloud.net/itmo-collab-app/weights/classification_model.ckpt) models are presented.
 
