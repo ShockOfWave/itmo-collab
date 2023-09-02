@@ -30,7 +30,7 @@ def decode_class_names(pred: int) -> str:
         0: '92',
         1: '95',
         2: '98',
-        3: 'no_bubble'
+        3: 'Unknow'
     }
     
     return dict_classes[pred]
