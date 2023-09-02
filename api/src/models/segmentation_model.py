@@ -6,7 +6,7 @@ class SegmentationModel:
     def __init__(
             self, 
             model_path: str = None,
-            conf: float = 0.3
+            conf: float = 0.3,
             ) -> None:
         
         '''
@@ -29,7 +29,7 @@ class SegmentationModel:
         Args:
         image - image as numpy array
 
-        Returns list like [(poly1, area1), (poly2, area2), ...]
+        Returns list like [poly1, poly2, ...]
         '''
 
         result = self._model.predict(
@@ -43,4 +43,4 @@ class SegmentationModel:
             
             return polygons
         else:
-            return None
+            return []
