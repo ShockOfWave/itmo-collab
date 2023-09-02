@@ -31,12 +31,16 @@ def find_molecules(img):
             diam = eq_dia(contour)
             rad = get_radius(contour)
             area = get_area(contour)
-            text =  f"Octane number: {octane_number}\n\nArea: {int(area)}\nArc lenght: {int(arc_lenght)}\nDiameter: {int(diam)}\nRadius: {int(rad)}"
+            text =  f"Octane number:\n{octane_number}\nArea: {int(area)}\nArc lenght: {int(arc_lenght)}\nDiameter: {int(diam)}\nRadius: {int(rad)}"
             for i, txt in enumerate(text.split('\n')):
                 dy = 15*i
-                cv2.putText(img, txt, (int(cx-rad), int(cy-diam+dy)), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,255), 2)
-            cv2.rectangle(img, (cx-int(rad)-5, cy-int(diam)-15), (cx-int(rad)-5+150, cy-int(diam)-15+95), (0, 255, 255), 1)
-            cv2.line(img, (cx, cy), (cx-int(rad)-5+150, cy-int(diam)-15+65), (0,255,255), 1)
+                if i in [0, 1]:
+                    cv2.putText(img, txt, (int(cx-rad), int(cy-diam+dy)), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
+                else:
+                    cv2.putText(img, txt, (int(cx-rad), int(cy-diam+dy)), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 255), 2)
+                     
+                cv2.rectangle(img, (cx-int(rad)-5, cy-int(diam)-15), (cx-int(rad)-5+150, cy-int(diam)-15+95), (0, 255, 255), 1)
+                cv2.line(img, (cx, cy), (cx-int(rad)-5+150, cy-int(diam)-15+95), (0,255,255), 1)
     _highlight_contours(img, contours)
 
 
