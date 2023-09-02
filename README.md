@@ -46,7 +46,7 @@ sudo apt install ffmpeg
 
 To run API use:
 ```bash
-python -m uvicorn api/main:app --host=0.0.0.0 --port=5556
+python -m uvicorn api.main:app --host=0.0.0.0 --port=5556
 ```
 
 ## Frontend
