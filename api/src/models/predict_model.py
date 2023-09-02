@@ -7,7 +7,7 @@ from api.src.models.segmentation_model import SegmentationModel
 from api.src.utils.models_decoders import get_transforms_for_predictions, decode_class_names
 from api.src.utils.paths import get_project_path
 
-def get_octane_number_from_model(model: OctaneClassifier, path_to_image: str = None, image: np.array = None):
+def get_octane_number_from_model(model: OctaneClassifier, device: str, path_to_image: str = None, image: np.array = None):
     
     """Get prediction from the model
 
@@ -23,10 +23,6 @@ def get_octane_number_from_model(model: OctaneClassifier, path_to_image: str = N
     """
     
     transform = get_transforms_for_predictions()
-    
-    device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
-    
-    model = model.to(device)
     
     if not path_to_image is None:
 
@@ -51,7 +47,7 @@ def get_octane_number_from_model(model: OctaneClassifier, path_to_image: str = N
         
         return decode_class_names(preds[0])
     
-def get_prediction_from_segmentation_model(model: SegmentationModel, path_to_image: str = None, image: np.array = None):
+def get_prediction_from_segmentation_model(path_to_image: str = None, image: np.array = None):
     """Model predict countors
 
     Args:
