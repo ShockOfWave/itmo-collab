@@ -35,7 +35,7 @@ def find_molecules(img):
             for i, txt in enumerate(text.split('\n')):
                 dy = 15*i
                 if i in [0, 1]:
-                    cv2.putText(img, txt, (int(cx-rad), int(cy-diam+dy)), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
+                    cv2.putText(img, txt, (int(cx-rad), int(cy-diam+dy)), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (51, 115, 184), 2)
                 else:
                     cv2.putText(img, txt, (int(cx-rad), int(cy-diam+dy)), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 255), 2)
                      
