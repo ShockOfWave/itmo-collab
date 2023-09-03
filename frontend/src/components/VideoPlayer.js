@@ -1,4 +1,3 @@
-import VideoPlayer from "react-video-js-player";
 import ReactPlayer from "react-player";
 
 
