@@ -26,7 +26,6 @@ The `api/.env` file is used to override environment variables. Below is a list o
 - `S3_BUCKET` - optional (`itmo-collab-app` by default); S3 bucket name
 - `S3_ACCESS_KEY` - **require**; S3 identification key
 - `S3_SECRET_KEY` - **require**; S3 secret key
-- `PROJECT_DIR_PATH` - **require**; Path to project in local file system
 
 ### Requirements
 
