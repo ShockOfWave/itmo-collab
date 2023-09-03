@@ -58,6 +58,7 @@ npm ci
 npm run start
 ```
 
+The URL to backend host is set in src/constants.js.
 # Acknowledgment
 This project was carried out with the support of the ITMO.Collab grant 622284 as part of the implementation of the 2030 project.
 
