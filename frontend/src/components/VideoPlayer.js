@@ -1,8 +1,9 @@
-import VideoPlayer from "react-video-js-player";
+import ReactPlayer from "react-player";
+
 
 function VideoPlayerComponent(props) {
     return (
-        <VideoPlayer src={props.src} type={props.type} width="auto" height="720" className="object-fit-contain border rounded"/>
+        <ReactPlayer url={props.src} type={props.type} width="100%" height="100%" controls className="object-fit-contain border rounded"/>
     )
 }
 

@@ -1,6 +1,6 @@
 import VideoPlayerComponent from "./VideoPlayer";
 import {useState} from "react";
-
+import {backend} from "../constants";
 
 
 function UploadComponent(props) {
@@ -10,7 +10,7 @@ function UploadComponent(props) {
     const [selectedFile, selectFile] = useState(null)
     const [loading, setLoading] = useState(false)
 
-    const hostUrl = 'http://127.0.0.1:5556/video/molecules'
+    const hostUrl = backend + '/video/molecules'
 
     const sendVideo = async () => {
         if (selectedFile!=null) {
@@ -43,7 +43,7 @@ function UploadComponent(props) {
          <div className="mt-3"><div className="input-group">
             <input type="file" className="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"
                    aria-label="Upload" accept="video/*,.avi" onChange={setFile} />
-            <button className="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04"
+            <button className="btn btn-outline-primary" type="button" id="inputGroupFileAddon04"
             onClick={sendVideo}>Загрузить</button>
          </div>
          </div>
