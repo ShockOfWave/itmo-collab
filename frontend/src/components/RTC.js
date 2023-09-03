@@ -1,10 +1,13 @@
 import Button from "./Button";
 import {useState} from "react";
+import {backend} from "../constants";
 
 function ComponentRTC(props) {
 
     const [is_translation, setTranslation] = useState(false)
     const [is_connecting, setConnection] = useState(false)
+
+    const hostUrl = backend + '/rtc/offer'
 
     function createPeerConnection() {
         var config = {
@@ -47,7 +50,7 @@ function ComponentRTC(props) {
         }).then(function() {
             var offer = pc.localDescription;
             // offer.sdp = sdpFilterCodec('video', 'default', offer.sdp);
-            return fetch('http://127.0.0.1:5556/rtc/offer', {
+            return fetch(hostUrl, {
                 body: JSON.stringify({
                     sdp: offer.sdp,
                     type: offer.type,
