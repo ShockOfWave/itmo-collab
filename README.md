@@ -1,6 +1,10 @@
 # Octane number analysis with cavitation bubbles and neural networks
 # Introduction
 
+<p align="center">
+    <img width="400" src="images/output.gif">
+</p>
+
 This project uses machine learning techniques and the nature of cavitation bubbles to predict the octane number of gasoline.
 Cavitation bubbles are formed under the influence of ultrasound, filmed on a high-speed camera. The resulting videos are storyboarded and segmented using a model based on YOLOv8 weights. The area, radius, etc. of each cavitation bubble in the image are obtained from the contours.
 Also, a model based on ResNet50 scales is used to classify the octane number in gasoline.
@@ -48,6 +52,11 @@ To run API use:
 python -m uvicorn api.main:app --host=0.0.0.0 --port=5556
 ```
 
+### Output example
+Segmentation model returns contours of bubble event in difficult frames
+
+![Alt Text](images/seg_model_example.png)
+
 ## Frontend
 
 To install dependencies for the frontend part, use:
@@ -56,8 +65,15 @@ To install dependencies for the frontend part, use:
 npm ci
 npm run start
 ```
+### Constants
+You need to paste domain or ip-address of you API server into frontend constants.
 
-The URL to backend host is set in src/constants.js.
+`The URL to backend host is set in src/constants.js.`
+
+### Frontend output example
+
+![Alt Text](images/frontend_example.png)
+
 # Acknowledgment
 This project was carried out with the support of the ITMO.Collab grant 622284 as part of the implementation of the 2030 project.
 
