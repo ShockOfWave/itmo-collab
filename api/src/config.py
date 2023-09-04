@@ -1,4 +1,4 @@
-from api.utils.paths import get_project_path
+from api.src.utils.paths import get_project_path
 
 from pydantic import BaseSettings, AnyHttpUrl, Field, DirectoryPath
 
