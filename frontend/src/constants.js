@@ -1,1 +1,1 @@
-export const backend = "http://127.0.0.1:5556";
+export const backend = "https://itmo.shockofwave.su/itmo_collab_api";
