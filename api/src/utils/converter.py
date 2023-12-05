@@ -1,5 +1,3 @@
-import asyncio
-
 import ffmpeg_streaming
 from ffmpeg_streaming import Formats
 
@@ -10,4 +8,3 @@ def mp4_to_hls(file_path):
 
     hls.auto_generate_representations()
     hls.output()
-

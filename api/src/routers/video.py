@@ -6,13 +6,11 @@ from fastapi import APIRouter, UploadFile
 from api.src.cv import create_and_upload_handled_video
 
 
-router = APIRouter(prefix='/video')
+router = APIRouter(prefix="/video")
 
 
-@router.post('/molecules')
-def upload_video(
-    file: UploadFile
-):
+@router.post("/molecules")
+def upload_video(file: UploadFile):
     temp = NamedTemporaryFile(delete=False)
     try:
         try:
@@ -30,5 +28,4 @@ def upload_video(
     finally:
         temp.close()  # the `with` statement above takes care of closing the file
         os.remove(temp.name)
-    return {'download_url': download_url, 'stream_url': stream_url}
-
+    return {"download_url": download_url, "stream_url": stream_url}

@@ -1,4 +1,14 @@
 # Octane number analysis with cavitation bubbles and neural networks
+
+![GitHub](https://img.shields.io/github/license/ShockOfWave/itmo-collab)
+![GitHub last commit](https://img.shields.io/github/last-commit/ShockOfWave/itmo-collab)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/ShockOfWave/itmo-collab)
+![contributors](https://img.shields.io/github/contributors/ShockOfWave/itmo-collab) 
+![codesize](https://img.shields.io/github/languages/code-size/ShockOfWave/itmo-collab)
+![GitHub repo size](https://img.shields.io/github/repo-size/ShockOfWave/itmo-collab)
+![GitHub top language](https://img.shields.io/github/languages/top/ShockOfWave/itmo-collab)
+![GitHub language count](https://img.shields.io/github/languages/count/ShockOfWave/itmo-collab)
+
 # Introduction
 
 <p align="center">
@@ -43,7 +53,6 @@ You also need to install ffmpeg:
 ```bash
 sudo apt install ffmpeg
 ```
-И можно запустить main. Надо еще в конфиг добавить port, host. Пока еще не успел сделать конфиг на фронте, поэтому пока так.
 
 ### Run
 

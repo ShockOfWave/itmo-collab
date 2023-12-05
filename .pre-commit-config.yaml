@@ -1,0 +1,37 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+exclude: |
+  (?x)(
+    ^videos/|
+    ^data/|
+    ^images/|
+    ^frontend/
+  )
+default_stages: [commit]
+
+repos:
+  - repo: 'https://github.com/pre-commit/pre-commit-hooks'
+    rev: v4.5.0
+    hooks:
+        # checks last line in each file
+      - id: end-of-file-fixer
+        # checks filenames for filesystem conflicts
+      - id: check-case-conflict
+        # check large files in git
+      - id: check-added-large-files
+        # fixing byte order markers
+      - id: fix-byte-order-marker
+        # check for python
+      - id: check-ast
+        # fix requirements
+      - id: requirements-txt-fixer
+  - repo: 'https://github.com/PyCQA/flake8'
+    rev: 6.1.0
+    hooks:
+      - id: flake8
+        additional_dependencies:
+          - flake8-bugbear
+  - repo: 'https://github.com/psf/black'
+    rev: 23.11.0
+    hooks:
+      - id: black

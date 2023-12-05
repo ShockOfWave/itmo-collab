@@ -4,13 +4,13 @@ from fastapi import APIRouter
 from api.src.rtc import VideoStream, relay, recorder, pcs
 from api.src.schemas import Offer, RTCOffer
 
-router = APIRouter(prefix='/rtc')
+router = APIRouter(prefix="/rtc")
 
-@router.post('/offer')
+
+@router.post("/offer")
 async def offer(offer: Offer):
     pc = RTCPeerConnection()
     pcs.add(pc)
-
 
     rtc_offer = RTCSessionDescription(sdp=offer.sdp, type=offer.type)
 
@@ -22,11 +22,7 @@ async def offer(offer: Offer):
 
     @pc.on("track")
     def on_track(track):
-        pc.addTrack(
-            VideoStream(
-                relay.subscribe(track), offer.cv
-            )
-        )
+        pc.addTrack(VideoStream(relay.subscribe(track), offer.cv))
 
         @track.on("ended")
         async def on_ended():
@@ -38,5 +34,4 @@ async def offer(offer: Offer):
     answer = await pc.createAnswer()
     await pc.setLocalDescription(answer)
 
-    return RTCOffer(sdp=pc.localDescription.sdp,
-                    type=pc.localDescription.type)
+    return RTCOffer(sdp=pc.localDescription.sdp, type=pc.localDescription.type)

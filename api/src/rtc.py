@@ -4,8 +4,9 @@ from av import VideoFrame
 
 from api.src.cv.contours import find_molecules
 
+
 class VideoStream(MediaStreamTrack):
-    kind = 'video'
+    kind = "video"
 
     def __init__(self, track, cv):
         super().__init__()
@@ -24,7 +25,6 @@ class VideoStream(MediaStreamTrack):
             frame.time_base = time_base
             frame.pts = pts
         return frame
-
 
 
 relay = MediaRelay()
