@@ -84,6 +84,7 @@ You need to paste domain or ip-address of you API server into frontend constants
 ![Alt Text](images/frontend_example.png)
 
 # Acknowledgment
+We thank the [Infochemistry Scientific Center ISC](https://infochemistry.ru) for the provided data and computing power.
 This project was carried out with the support of the ITMO.Collab grant 622284 as part of the implementation of the 2030 project.
 
 # License
